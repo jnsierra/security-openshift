@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   # El nombre que usarás para referenciar esta ServiceAccount
-  name: cicd-serviceaccount
+  name: cicd-serviceaccount01
   # Opcional: El namespace donde se creará. Si se omite, se usará 'default'.
   namespace: nicolas-sierra-dev
 ---
@@ -13,7 +13,7 @@ metadata:
   namespace: nicolas-sierra-dev
 subjects:
   - kind: ServiceAccount
-    name: cicd-serviceaccount # La cuenta de servicio que creamos
+    name: cicd-serviceaccount01 # La cuenta de servicio que creamos
     namespace: nicolas-sierra-dev
 roleRef:
   kind: ClusterRole
