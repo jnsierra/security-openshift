@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  clone-proyect:
     # El tipo de máquina virtual donde se ejecutará el job
     runs-on: ubuntu-latest
 
@@ -17,3 +17,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Veo los archivos clonados
         run: ls -la
+      - name: Install OC CLI
+        run: |
+          curl -L https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/openshift-client-linux.tar.gz | tar xz          
+          sudo mv oc /usr/local/bin/          
+          oc version
+      - name: Login in Openshift
+        uses: redhat-actions/oc-login@v1
+        with:
+          openshift_server_url: https://api.rm1.0a51.p1.openshiftapps.com:6443
+          openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+      - name: Apply ocsecurity.yaml
+        run: |
+          oc apply -f ocsecurity.yaml
