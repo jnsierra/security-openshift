@@ -29,4 +29,5 @@ jobs:
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
       - name: Apply ocsecurity.yaml
         run: |
+          oc project nicolas-sierra-dev
           oc apply -f ocsecurity.yaml
