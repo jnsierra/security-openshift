@@ -12,6 +12,8 @@ jobs:
 
     # Los pasos que componen el job
     steps:
-    # 1. Clona tu repositorio en la máquina virtual
+      # 1. Clona tu repositorio en la máquina virtual
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Veo los archivos clonados
+        run: ls -la
