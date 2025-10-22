@@ -32,4 +32,6 @@ jobs:
       - name: Apply ocsecurity.yaml
         run: |
           oc apply --dry-run=server -f ocsecurity.yaml
+      - name: Apply ocsecurity.yaml
+        run: |
           oc apply -f ocsecurity.yaml
